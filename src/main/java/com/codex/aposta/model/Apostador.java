@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,6 +18,7 @@ import javax.validation.constraints.NotBlank;
 @Getter
 @Setter
 @Entity
+@ToString
 public class Apostador {
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)

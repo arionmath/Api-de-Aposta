@@ -16,18 +16,19 @@ import static org.springframework.http.HttpStatus.CREATED;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/aposta")
 public class ApostaController {
 
     private final ApostaService apostaService;
 
-    @PostMapping("/aposta")
+    @PostMapping
     public ResponseEntity<ApostaOut> salvaAposta(@Valid @RequestBody ApostaIn apostaIn){
         ApostaOut apostaOut = apostaService.salvaAposta(apostaIn);
 
         return ResponseEntity.status(CREATED).body(apostaOut);
     }
 
-    @GetMapping("/buscaApostasPorIdApostador/{idApostador}")
+    @GetMapping("/por-apostador/{idApostador}")
     public List<ApostasOut> buscaApostasPorIdApostador(@PathVariable Long idApostador){
         return apostaService.buscaApostasPorIdApostador(idApostador);
     }

@@ -1,5 +1,16 @@
 package com.codex.aposta.service;
 
+import static org.springframework.http.HttpStatus.NOT_FOUND;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
 import com.codex.aposta.model.Aposta;
 import com.codex.aposta.model.Apostador;
 import com.codex.aposta.model.dto.ApostaIn;
@@ -7,14 +18,8 @@ import com.codex.aposta.model.dto.ApostaOut;
 import com.codex.aposta.model.dto.ApostasOut;
 import com.codex.aposta.repository.ApostaRepository;
 import com.codex.aposta.repository.ApostadorRepository;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
-
-import java.util.*;
-
-import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @RequiredArgsConstructor
 @Service
